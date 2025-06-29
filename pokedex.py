@@ -53,3 +53,25 @@ def mostrar_pokemon(pokemon_data):
     print(fill(descricao, width=50))
     print(pokemon_data['sprites']['front_default'])
 
+def main():
+    print("Bem-vindo à Pokédex do Terminal!")
+    print("Digite 'sair' a qualquer momento para encerrar.\n")
+    
+    while True:
+        entrada = input("Digite o nome ou número do Pokémon: ").strip()
+        
+        if entrada.lower() == 'sair':
+            print("Até mais, Treinador!")
+            break
+        
+        pokemon = obter_info_pokemon(entrada)
+        
+        if pokemon:
+            mostrar_pokemon(pokemon)
+        else:
+            print(f"Pokémon '{entrada}' não encontrado. Tente novamente.")
+        
+        print("\n" + "-"*50 + "\n")
+
+if __name__ == "__main__":
+    main()
